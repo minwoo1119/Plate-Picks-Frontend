@@ -1,0 +1,18 @@
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	.labelText {
+		font-size: 0.6em;
+	}
+	.inputForm {
+		border: 1px solid #e2e8f0;
+		border-radius: 8px;
+		padding: 0.2rem 0.8rem;
+		margin: 0.4rem 0;
+		width: 92%;
+		height: 2rem;
+	}
+}
