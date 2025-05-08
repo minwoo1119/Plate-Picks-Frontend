@@ -1,0 +1,51 @@
+.container {
+	width: 100%;
+	height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		.infoBox {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: start;
+			gap: 0.5rem;
+			font-size: 0.8em;
+			.infoTitle {
+				font-weight: bold;
+			}
+			.infos {
+				color: gray;
+			}
+		}
+		.checkContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			.icon {
+				margin: 1rem;
+				padding: 0.8rem;
+				border-radius: 50%;
+				background-color: #dcfce7;
+				color: #17a34a;
+			}
+			.mainText {
+				margin: 0.4rem;
+				font-size: 1.2em;
+				font-weight: bold;
+			}
+			.subText {
+				margin: 0.4rem;
+				font-size: 0.8em;
+			}
+		}
+	}
+}
