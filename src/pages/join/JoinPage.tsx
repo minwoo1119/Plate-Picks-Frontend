@@ -33,7 +33,7 @@ function JoinPage() {
 				text="응답 시작"
 				color="#5046E5"
 				fontColor="white"
-				onClick={() => navigate("/progress", { state: { name } })}
+				onClick={() => navigate("/survey", { state: { name } })}
 				disabled={name.length === 0}
 			/>
 		</div>
