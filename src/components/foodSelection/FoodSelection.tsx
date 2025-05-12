@@ -1,6 +1,6 @@
 import { ThumbsDown, ThumbsUp, X } from "lucide-react";
 
-import { Preference } from "../../pages/progress/ProgressPage";
+import { Preference } from "../../pages/survey/SurveyPage";
 import styles from "./foodSelection.module.scss";
 
 type FoodSelectionProps = {
