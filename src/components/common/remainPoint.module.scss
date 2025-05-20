@@ -1,0 +1,10 @@
+.container {
+	width: 95%;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	background-color: #fffbeb;
+	& > div {
+		color: #92400e;
+	}
+}

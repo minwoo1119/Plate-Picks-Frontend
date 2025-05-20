@@ -1,0 +1,36 @@
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.textArea {
+		margin: 2rem;
+		width: 95%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.4rem;
+		.title {
+			font-size: 1.4em;
+			font-weight: bold;
+		}
+	}
+	.recommendBox {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+	.buttonArea {
+		margin: 2rem;
+		width: 95%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+}
