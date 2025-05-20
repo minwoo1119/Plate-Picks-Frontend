@@ -1,0 +1,35 @@
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+
+	.statusBox {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.6rem;
+		.icon {
+			margin: 1rem;
+			padding: 1rem;
+			border-radius: 50%;
+			background-color: #e0e7ff;
+		}
+		.titleText {
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+	}
+
+	.statusContainer {
+		width: 95%;
+		margin: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1rem;
+	}
+}
