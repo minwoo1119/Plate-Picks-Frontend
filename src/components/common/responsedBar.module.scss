@@ -1,0 +1,29 @@
+.container {
+	padding: 0.6rem 1rem;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f9fafb;
+	.leftSection {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		.name {
+			font-weight: bold;
+		}
+	}
+
+	.checkIcon {
+		padding: 0.4rem;
+		border-radius: 50%;
+		background-color: #dcfce7;
+	}
+	.circleIcon {
+		padding: 0.4rem;
+		border-radius: 50%;
+	}
+}
