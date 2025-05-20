@@ -1,0 +1,27 @@
+.container {
+	width: 100%;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	.info {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.9rem;
+		color: #4a5568;
+	}
+
+	.barWrapper {
+		width: 100%;
+		height: 10px;
+		background-color: #e2e8f0;
+		border-radius: 6px;
+		overflow: hidden;
+		.barFill {
+			height: 100%;
+			background-color: #5046e5;
+			width: 0%;
+			transition: width 0.4s ease;
+		}
+	}
+}
