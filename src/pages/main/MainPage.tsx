@@ -37,7 +37,7 @@ function MainPage() {
     };
     const handleJoinBtnClick = () => {
         console.log('모임 참여 페이지 이동');
-        navigate('/join');
+        navigate('/join', { state: { roomId: null } });
     };
 
     return (

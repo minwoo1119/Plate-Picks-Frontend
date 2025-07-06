@@ -9,7 +9,6 @@ import axios from 'axios';
 import styles from './joinPage.module.scss';
 
 function JoinPage() {
-    // 방 이름 정할 수 있게 추후에 수정
     const [title, setTitle] = useState('default title');
     const [partyId, setPartyId] = useState('ajksn12knd');
     const [name, setName] = useState('');
@@ -22,7 +21,7 @@ function JoinPage() {
                 'http://119.56.230.161:7777/participants',
                 {
                     name: name,
-                    roomId: roomId,
+                    roomId: partyId,
                 },
             );
             console.log('userID : ', response.data.id);
@@ -39,7 +38,11 @@ function JoinPage() {
         }
     };
     useEffect(() => {
-        setPartyId(roomId);
+        if (!location.state.roomId) {
+            setPartyId('');
+        } else {
+            setPartyId(roomId);
+        }
     }, []);
     return (
         <div className={styles.container}>
@@ -53,6 +56,14 @@ function JoinPage() {
                     모든 참가자의 선호도를 바탕으로 최적의 메뉴를
                     추천해드립니다.
                 </div>
+                {!location.state.roomId && (
+                    <Input
+                        label='roomID'
+                        onChange={(e) => setPartyId(e.target.value)}
+                        placeholder='방 ID를 입력하세요.'
+                        type='text'
+                    />
+                )}
                 <Input
                     label='이름'
                     onChange={(e) => setName(e.target.value)}
