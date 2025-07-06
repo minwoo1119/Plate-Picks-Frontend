@@ -20,6 +20,7 @@ export type Preference = 'Good' | 'Bad' | 'Soso';
 function SurveyPage() {
     const location = useLocation();
     const navigate = useNavigate();
+    const roomId = location.state.roomId;
     const ITEMS_PER_PAGE = 3;
     const [currentPage, setCurrentPage] = useState(1);
     const [foodList, setFoodList] = useState<Food[]>([]);
@@ -99,7 +100,7 @@ function SurveyPage() {
         };
         submitPreferences(data);
         handleCompleted();
-        navigate('/progress', { state: selected });
+        navigate('/progress', { state: { id: participantId, roomId: roomId } });
     };
 
     return (

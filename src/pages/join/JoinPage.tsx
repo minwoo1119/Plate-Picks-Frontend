@@ -28,7 +28,11 @@ function JoinPage() {
             console.log('userID : ', response.data.id);
 
             navigate('/survey', {
-                state: { name, participantId: response.data.id },
+                state: {
+                    name,
+                    participantId: response.data.id,
+                    roomId: roomId,
+                },
             });
         } catch (err) {
             console.error('참가 중 오류 발생', err);
