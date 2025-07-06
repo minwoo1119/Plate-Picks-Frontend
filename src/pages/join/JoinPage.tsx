@@ -9,7 +9,7 @@ import axios from 'axios';
 import styles from './joinPage.module.scss';
 
 function JoinPage() {
-    const [title, setTitle] = useState('default title');
+    const [title, setTitle] = useState('');
     const [partyId, setPartyId] = useState('ajksn12knd');
     const [name, setName] = useState('');
     const location = useLocation();
@@ -38,6 +38,7 @@ function JoinPage() {
         }
     };
     useEffect(() => {
+        setTitle('default title');
         if (!location.state.roomId) {
             setPartyId('');
         } else {
