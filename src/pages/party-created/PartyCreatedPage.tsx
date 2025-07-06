@@ -12,7 +12,7 @@ function PartyCreatedPage() {
     const navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
-        setInviteCode(location.state.roomCode);
+        setInviteCode(location.state.roomId);
     });
     return (
         <div className={styles.container}>
@@ -48,7 +48,7 @@ function PartyCreatedPage() {
             <Button
                 text='내 모임으로 계속하기'
                 onClick={() =>
-                    navigate('/join', { state: { code: inviteCode } })
+                    navigate('/join', { state: { roomId: inviteCode } })
                 }
                 color='#5046E5'
                 fontColor='white'

@@ -4,7 +4,7 @@ import { Preference } from '../../pages/survey/SurveyPage';
 import styles from './foodSelection.module.scss';
 
 type FoodSelectionProps = {
-    id: number;
+    id: string;
     name: string;
     description: string;
     imgUrl: string;

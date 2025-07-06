@@ -1,71 +1,104 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Button from '../../components/common/Button';
 import FoodSelection from '../../components/foodSelection/FoodSelection';
 import Header from '../../components/common/Header';
+import { SubmitPreferencesDto } from './dto/submit-preferences.dto';
+import axios from 'axios';
 import styles from './surveyPage.module.scss';
-import { useNavigate } from 'react-router-dom';
 
 type Food = {
-    id: number;
+    id: string;
     name: string;
     description: string;
     imgUrl: string;
 };
 
-const dummyFoods: Food[] = [
-    {
-        id: 1,
-        name: '마라탕',
-        description: '얼얼한 매운맛이 특징인 중국 사천식 탕 요리',
-        imgUrl: 'src/img/food.jpeg',
-    },
-    {
-        id: 2,
-        name: '김치찌개',
-        description: '한국인의 소울푸드, 김치와 돼지고기를 넣은 찌개',
-        imgUrl: 'src/img/food.jpeg',
-    },
-    {
-        id: 3,
-        name: '파스타',
-        description: '크림, 토마토, 오일 등 다양한 소스의 이탈리아 면 요리',
-        imgUrl: 'src/img/food.jpeg',
-    },
-];
-
 export type Preference = 'Good' | 'Bad' | 'Soso';
 
 function SurveyPage() {
+    const location = useLocation();
     const navigate = useNavigate();
-
+    const ITEMS_PER_PAGE = 3;
+    const [currentPage, setCurrentPage] = useState(1);
     const [foodList, setFoodList] = useState<Food[]>([]);
-    const [preferences, setPreferences] = useState<Record<number, Preference>>(
+    const [preferences, setPreferences] = useState<Record<string, Preference>>(
         {},
     );
+    const totalPages = Math.ceil(foodList.length / ITEMS_PER_PAGE);
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentFoods = foodList.slice(start, start + ITEMS_PER_PAGE);
+    const participantId = location.state.participantId;
+
+    const fetchFoodList = async () => {
+        try {
+            const response = await axios.get(
+                'http://119.56.230.161:7777/foods',
+            );
+            setFoodList(response.data);
+            console.log('fetched data : ', response.data);
+        } catch (err) {
+            console.error('요청 중 오류 발생', err);
+        }
+    };
 
     useEffect(() => {
-        setFoodList(dummyFoods);
-        const initialPrefs: Record<number, Preference> = {};
-        dummyFoods.forEach((food) => {
+        fetchFoodList();
+        setFoodList(foodList);
+        const initialPrefs: Record<string, Preference> = {};
+        foodList.forEach((food) => {
             initialPrefs[food.id] = 'Soso';
         });
         setPreferences(initialPrefs);
     }, []);
 
-    const handleSetPreference = (id: number, pref: Preference) => {
+    const handleSetPreference = (id: string, pref: Preference) => {
         setPreferences((prev) => ({
             ...prev,
             [id]: pref,
         }));
     };
 
+    const submitPreferences = async (data: SubmitPreferencesDto) => {
+        try {
+            const response = await axios.post(
+                'http://119.56.230.161:7777/preferences/submit',
+                data,
+            );
+            console.log('성공!', response.data);
+        } catch (err) {
+            console.error('에러 발생', err);
+        }
+    };
+
+    const handleCompleted = async () => {
+        try {
+            const response = await axios.get(
+                `http://119.56.230.161:7777/participants/complete/${participantId}`,
+            );
+            console.log('응답:', response.data);
+        } catch (err) {
+            console.error('요청 중 오류 발생:', err);
+        }
+    };
+
     const handleNext = () => {
         const selected = foodList.map((food) => ({
+            id: food.id,
             name: food.name,
             preference: preferences[food.id],
         }));
         console.log('제출할 데이터:', selected);
+        const data: SubmitPreferencesDto = {
+            participantId: participantId,
+            preferences: selected.map((item) => ({
+                foodId: item.id,
+                preference: item.preference,
+            })),
+        };
+        submitPreferences(data);
+        handleCompleted();
         navigate('/progress', { state: selected });
     };
 
@@ -83,7 +116,7 @@ function SurveyPage() {
                         </div>
                     </div>
                     <div className={styles.foodList}>
-                        {foodList.map((food) => (
+                        {currentFoods.map((food) => (
                             <FoodSelection
                                 key={food.id}
                                 id={food.id}
@@ -101,10 +134,20 @@ function SurveyPage() {
             </div>
 
             <div className={styles.buttonArea}>
-                <Button text='이전' onClick={() => navigate(-1)} />
                 <Button
-                    text='다음'
-                    onClick={handleNext}
+                    text='이전'
+                    onClick={() =>
+                        setCurrentPage((prev) => Math.max(prev - 1, 1))
+                    }
+                    disabled={currentPage === 1}
+                />
+                <Button
+                    text={currentPage === totalPages ? '제출' : '다음'}
+                    onClick={
+                        currentPage === totalPages
+                            ? handleNext
+                            : () => setCurrentPage((prev) => prev + 1)
+                    }
                     color='#5046E5'
                     fontColor='#FFFFFF'
                 />

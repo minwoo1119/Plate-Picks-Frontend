@@ -19,13 +19,16 @@ function MainPage() {
             );
 
             const roomCode = response.data.code;
+            const roomId = response.data.id;
 
             console.log('방 생성 성공, 코드:', roomCode);
+            console.log('방 생성 성공, ID:', roomId);
 
             navigate('/party-created', {
                 state: {
                     numOfPeople,
                     roomCode,
+                    roomId,
                 },
             });
         } catch (err) {

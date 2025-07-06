@@ -15,25 +15,27 @@ function JoinPage() {
     const [name, setName] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
-    const roomCode = location.state.code;
+    const roomId = location.state.roomId;
     const handleBtnClick = async () => {
         try {
             const response = await axios.post(
                 'http://119.56.230.161:7777/participants',
                 {
                     name: name,
-                    roomCode: roomCode,
+                    roomId: roomId,
                 },
             );
             console.log('userID : ', response.data.id);
 
-            navigate('/survey', { state: { name, id: response.data.id } });
+            navigate('/survey', {
+                state: { name, participantId: response.data.id },
+            });
         } catch (err) {
             console.error('참가 중 오류 발생', err);
         }
     };
     useEffect(() => {
-        setPartyId(roomCode);
+        setPartyId(roomId);
     }, []);
     return (
         <div className={styles.container}>
