@@ -5,7 +5,7 @@ import Button from '../../components/common/Button';
 import FoodSelection from '../../components/foodSelection/FoodSelection';
 import Header from '../../components/common/Header';
 import { SubmitPreferencesDto } from './dto/submit-preferences.dto';
-import axios from 'axios';
+import api from '../../api/api';
 import styles from './surveyPage.module.scss';
 
 type Food = {
@@ -34,9 +34,7 @@ function SurveyPage() {
 
     const fetchFoodList = async () => {
         try {
-            const response = await axios.get(
-                'http://119.56.230.161:7777/foods',
-            );
+            const response = await api.get('/foods');
             setFoodList(response.data);
             console.log('fetched data : ', response.data);
         } catch (err) {
@@ -63,10 +61,7 @@ function SurveyPage() {
 
     const submitPreferences = async (data: SubmitPreferencesDto) => {
         try {
-            const response = await axios.post(
-                'http://119.56.230.161:7777/preferences/submit',
-                data,
-            );
+            const response = await api.post('/preferences/submit', data);
             console.log('성공!', response.data);
         } catch (err) {
             console.error('에러 발생', err);
@@ -75,8 +70,8 @@ function SurveyPage() {
 
     const handleCompleted = async () => {
         try {
-            const response = await axios.get(
-                `http://119.56.230.161:7777/participants/complete/${participantId}`,
+            const response = await api.get(
+                `/participants/complete/${participantId}`,
             );
             console.log('응답:', response.data);
         } catch (err) {

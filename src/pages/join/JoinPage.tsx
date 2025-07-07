@@ -5,7 +5,7 @@ import Button from '../../components/common/Button';
 import Header from '../../components/common/Header';
 import Input from '../../components/common/Input';
 import { Users } from 'lucide-react';
-import axios from 'axios';
+import api from '../../api/api';
 import styles from './joinPage.module.scss';
 
 function JoinPage() {
@@ -17,13 +17,10 @@ function JoinPage() {
     const roomId = location.state.roomId;
     const handleBtnClick = async () => {
         try {
-            const response = await axios.post(
-                'http://119.56.230.161:7777/participants',
-                {
-                    name: name,
-                    roomId: partyId,
-                },
-            );
+            const response = await api.post('/participants', {
+                name: name,
+                roomId: partyId,
+            });
             console.log('userID : ', response.data.id);
 
             navigate('/survey', {

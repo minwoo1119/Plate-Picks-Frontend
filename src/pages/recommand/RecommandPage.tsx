@@ -4,7 +4,7 @@ import Button from '../../components/common/Button';
 import Header from '../../components/common/Header';
 import RemainPoint from '../../components/common/RemainPoint';
 import ResultFoodBox from '../../components/resultFoodBox/ResultFoodBox';
-import axios from 'axios';
+import api from '../../api/api';
 import styles from './recommandPage.module.scss';
 import { useLocation } from 'react-router-dom';
 
@@ -23,9 +23,7 @@ function RecommandPage() {
 
     const getRecommandMenu = async () => {
         try {
-            const response = await axios.get(
-                `http://119.56.230.161:7777/preferences/result/${roomId}`,
-            );
+            const response = await api.get(`/preferences/result/${roomId}`);
             setRecommandMenu(response.data);
         } catch (err) {
             console.error('에러 발생!', err);

@@ -1,7 +1,7 @@
 import Button from '../../components/common/Button';
 import { EggFried } from 'lucide-react';
 import Input from '../../components/common/Input';
-import axios from 'axios';
+import api from '../../api/api';
 import styles from './mainpage.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -11,12 +11,9 @@ function MainPage() {
     const navigate = useNavigate();
     const handleMakeBtnClick = async () => {
         try {
-            const response = await axios.post(
-                'http://119.56.230.161:7777/room',
-                {
-                    total_participants: numOfPeople,
-                },
-            );
+            const response = await api.post('/room', {
+                total_participants: numOfPeople,
+            });
 
             const roomCode = response.data.code;
             const roomId = response.data.id;

@@ -5,7 +5,7 @@ import Header from '../../components/common/Header';
 import ResponsedBar from '../../components/common/ResponsedBar';
 import StatueBar from '../../components/common/StatusBar';
 import { Users } from 'lucide-react';
-import axios from 'axios';
+import api from '../../api/api';
 import styles from './progressPage.module.scss';
 
 export interface RoomUserInfo {
@@ -31,9 +31,7 @@ function ProgressPage() {
 
     const getRoomInfo = async () => {
         try {
-            const response = await axios.get(
-                `http://119.56.230.161:7777/room/${roomId}/status`,
-            );
+            const response = await api.get(`/room/${roomId}/status`);
             console.log('방 정보 : ', response.data);
             setRoomInfo(response.data);
         } catch (err) {
@@ -43,9 +41,7 @@ function ProgressPage() {
 
     const getRoomParticipateInfo = async () => {
         try {
-            const response = await axios.get(
-                `http://119.56.230.161:7777/room/participants/${roomId}`,
-            );
+            const response = await api.get(`/room/participants/${roomId}`);
             console.log('응답 정보 : ', response.data);
             setUserList(response.data);
         } catch (err) {
@@ -58,7 +54,7 @@ function ProgressPage() {
         getRoomInfo();
 
         const eventSource = new EventSource(
-            `http://119.56.230.161:7777/sse/${roomId}`,
+            `https://api.platepicks.pics/sse/${roomId}`,
         );
 
         eventSource.onmessage = (event) => {
