@@ -1,10 +1,12 @@
 .container {
-	width: 95%;
-	padding: 1rem;
-	display: flex;
-	justify-content: space-between;
-	background-color: #fffbeb;
-	& > div {
-		color: #92400e;
-	}
+	width: 100%;
+	padding: 1rem 1.15rem;
+	border-radius: 18px;
+	background: var(--warning-soft);
+	border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.label {
+	color: var(--warning);
+	font-weight: 600;
 }

@@ -1,25 +1,45 @@
 .container {
 	width: 100%;
-	margin: 1rem;
 	display: flex;
 	flex-direction: column;
-	gap: 0.4rem;
+	gap: 0.7rem;
+	padding: 1.15rem 1.25rem;
+	border-radius: var(--radius-md);
+	background: rgba(255, 255, 255, 0.84);
+	border: 1px solid var(--line);
+	box-shadow: var(--shadow-md);
+
 	.info {
 		display: flex;
 		justify-content: space-between;
-		font-size: 0.9rem;
-		color: #4a5568;
+		align-items: center;
+	}
+
+	.label {
+		font-size: 0.92rem;
+		color: var(--text-secondary);
+	}
+
+	.value {
+		font-size: 1.15rem;
+		font-weight: 700;
+		letter-spacing: -0.04em;
 	}
 
 	.barWrapper {
 		width: 100%;
-		height: 10px;
-		background-color: #e2e8f0;
-		border-radius: 6px;
+		height: 12px;
+		background: var(--surface-strong);
+		border-radius: 999px;
 		overflow: hidden;
+
 		.barFill {
 			height: 100%;
-			background-color: #5046e5;
+			background: linear-gradient(
+				90deg,
+				var(--accent) 0%,
+				var(--accent-strong) 100%
+			);
 			width: 0%;
 			transition: width 0.4s ease;
 		}

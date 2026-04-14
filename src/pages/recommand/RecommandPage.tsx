@@ -41,12 +41,15 @@ function RecommandPage() {
     }, []);
     return (
         <div className={styles.container}>
-            <Header text='메뉴 추천' />
-            <RemainPoint remainCnt={remainPoint} />
-            <div className={styles.textArea}>
-                <div className={styles.title}>추천 메뉴</div>
-                <div className={styles.subTitle}>
-                    여러분의 의견에 맞는 음식입니다 !
+            <div className={styles.heroSection}>
+                <Header text='메뉴 추천' eyebrow='Recommendation' />
+                <RemainPoint remainCnt={remainPoint} />
+                <div className={styles.textArea}>
+                    <div className={styles.title}>추천 메뉴</div>
+                    <div className={styles.subTitle}>
+                        여러분의 의견을 바탕으로 가장 균형 잡힌 선택을
+                        골랐습니다.
+                    </div>
                 </div>
             </div>
             <div className={styles.recommendBox}>
@@ -60,9 +63,10 @@ function RecommandPage() {
                 <Button
                     onClick={() => handleRetry()}
                     text='다시 추천받기'
-                    color='#5046E5'
+                    color='#2F6B3D'
                     disabled={remainPoint <= 0}
                     fontColor='white'
+                    variant='primary'
                 />
                 <Button
                     onClick={() => handleRetry()}

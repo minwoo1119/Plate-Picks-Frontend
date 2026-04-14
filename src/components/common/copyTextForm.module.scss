@@ -1,18 +1,35 @@
 .container {
-	width: 80%;
-	padding: 0.8rem 1rem;
-	border: 1px solid #e5e7eb;
-	border-radius: 6px;
+	width: 100%;
+	padding: 0.85rem 0.95rem;
+	border: 1px solid var(--line);
+	border-radius: 18px;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
+	background: rgba(255, 255, 255, 0.82);
+
 	.text {
-		font-size: 0.8em;
+		font-size: 0.95rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 	}
-	.copyIcon {
-		width: 0.8rem;
-		height: auto;
-	}
+}
+
+.copyButton {
+	border: 0;
+	background: var(--accent);
+	color: white;
+	width: 2.4rem;
+	height: 2.4rem;
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+	flex-shrink: 0;
+}
+
+.copyIcon {
+	width: 0.95rem;
+	height: 0.95rem;
 }

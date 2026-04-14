@@ -8,7 +8,7 @@ const RemainPoint = ({ remainCnt }: RemainPointProps) => {
 	const totalCnt = 2;
 	return (
 		<div className={styles.container}>
-			<div>
+			<div className={styles.label}>
 				무료 재시도 가능 {remainCnt}/{totalCnt}
 			</div>
 		</div>

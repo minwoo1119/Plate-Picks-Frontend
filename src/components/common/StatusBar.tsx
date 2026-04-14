@@ -9,14 +9,17 @@ const StatueBar = ({
 	totalNumOfUsers,
 	numOfUsersCompleted,
 }: StatueBarProps) => {
-	const percentage = Math.round((numOfUsersCompleted / totalNumOfUsers) * 100);
+	const percentage =
+		totalNumOfUsers === 0
+			? 0
+			: Math.round((numOfUsersCompleted / totalNumOfUsers) * 100);
 	return (
 		<div className={styles.container}>
 			<div className={styles.info}>
-				<div>
+				<div className={styles.label}>
 					{totalNumOfUsers} 중 {numOfUsersCompleted}명 완료
 				</div>
-				<div>{percentage}%</div>
+				<div className={styles.value}>{percentage}%</div>
 			</div>
 			<div className={styles.barWrapper}>
 				<div className={styles.barFill} style={{ width: `${percentage}%` }} />

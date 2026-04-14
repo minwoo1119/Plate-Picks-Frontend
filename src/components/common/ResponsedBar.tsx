@@ -12,7 +12,7 @@ const ResponsedBar = ({ isChecked, name, status }: ResponsedBarProps) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.leftSection}>
-				<div>
+				<div className={styles.iconWrapper}>
 					{isChecked ? (
 						<Check className={styles.checkIcon} />
 					) : (
@@ -21,7 +21,7 @@ const ResponsedBar = ({ isChecked, name, status }: ResponsedBarProps) => {
 				</div>
 				<div className={styles.name}>{name}</div>
 			</div>
-			<div>{status}</div>
+			<div className={styles.status}>{status}</div>
 		</div>
 	);
 };

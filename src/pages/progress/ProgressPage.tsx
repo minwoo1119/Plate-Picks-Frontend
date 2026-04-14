@@ -88,21 +88,25 @@ function ProgressPage() {
 
     return (
         <div className={styles.container}>
-            <Header text='모임 진행 상황' />
-            <div className={styles.statusBox}>
-                <Users className={styles.icon} />
-                <div className={styles.titleText}>응답 대기 중</div>
-                <div className={styles.subText}>
-                    다른 참가자들이 설문을 완료할 때까지 기다려주세요.
+            <div className={styles.heroPanel}>
+                <Header text='모임 진행 상황' eyebrow='Live room status' />
+                <div className={styles.statusBox}>
+                    <Users className={styles.icon} />
+                    <div className={styles.titleText}>응답 대기 중</div>
+                    <div className={styles.subText}>
+                        다른 참가자들이 설문을 완료할 때까지 기다려주세요.
+                    </div>
                 </div>
             </div>
             {roomInfo && (
-                <StatueBar
-                    numOfUsersCompleted={
-                        userList.filter((ele) => ele.completed).length
-                    }
-                    totalNumOfUsers={roomInfo.total_participants}
-                />
+                <div className={styles.progressSection}>
+                    <StatueBar
+                        numOfUsersCompleted={
+                            userList.filter((ele) => ele.completed).length
+                        }
+                        totalNumOfUsers={roomInfo.total_participants}
+                    />
+                </div>
             )}
             <div className={styles.statusContainer}>
                 {userList.map((ele) => (

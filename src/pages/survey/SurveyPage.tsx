@@ -101,7 +101,7 @@ function SurveyPage() {
     return (
         <div className={styles.container}>
             <div className={styles.topArea}>
-                <Header text='음식 선호도' />
+                <Header text='음식 선호도' eyebrow='Preference survey' />
                 <div className={styles.content}>
                     <div className={styles.textArea}>
                         <div className={styles.titleText}>
@@ -136,6 +136,7 @@ function SurveyPage() {
                         setCurrentPage((prev) => Math.max(prev - 1, 1))
                     }
                     disabled={currentPage === 1}
+                    variant='ghost'
                 />
                 <Button
                     text={currentPage === totalPages ? '제출' : '다음'}
@@ -144,8 +145,9 @@ function SurveyPage() {
                             ? handleNext
                             : () => setCurrentPage((prev) => prev + 1)
                     }
-                    color='#5046E5'
+                    color='#2F6B3D'
                     fontColor='#FFFFFF'
+                    variant='primary'
                 />
             </div>
         </div>

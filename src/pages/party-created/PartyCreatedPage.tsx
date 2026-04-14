@@ -16,8 +16,8 @@ function PartyCreatedPage() {
     });
     return (
         <div className={styles.container}>
-            <Header text='모임이 생성되었습니다!' />
             <div className={styles.content}>
+                <Header text='모임이 생성되었습니다!' eyebrow='Room ready' />
                 <div className={styles.checkContainer}>
                     <Check className={styles.icon} />
                     <div className={styles.mainText}>
@@ -50,8 +50,9 @@ function PartyCreatedPage() {
                 onClick={() =>
                     navigate('/join', { state: { roomId: inviteCode } })
                 }
-                color='#5046E5'
+                color='#2F6B3D'
                 fontColor='white'
+                variant='primary'
             />
         </div>
     );

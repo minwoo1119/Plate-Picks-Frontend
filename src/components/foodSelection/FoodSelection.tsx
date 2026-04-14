@@ -25,34 +25,28 @@ function FoodSelection({
                 <img src={imgUrl} alt='음식 이미지' />
             </div>
             <div className={styles.textBox}>
-                <div>{name}</div>
-                <div>{description}</div>
+                <div className={styles.name}>{name}</div>
+                <div className={styles.description}>{description}</div>
             </div>
             <div className={styles.preferenceBox}>
                 <div
                     className={`${styles.preferenceBtn} ${
                         preference === 'Good' ? styles.selected : ''
-                    } ${styles.underline}`}
+                    }`}
                     onClick={() => setPreference('Good')}
                 >
                     <ThumbsUp width={15} />
+                    <span>좋아요</span>
                 </div>
                 <div
                     className={`${styles.preferenceBtn} ${
                         preference === 'Bad' ? styles.selected : ''
-                    } ${styles.underline}`}
+                    }`}
                     onClick={() => setPreference('Bad')}
                 >
                     <ThumbsDown width={15} />
+                    <span>별로예요</span>
                 </div>
-                {/* <div
-                    className={`${styles.preferenceBtn} ${
-                        preference === 'Soso' ? styles.selected : ''
-                    }`}
-                    onClick={() => setPreference('Soso')}
-                >
-                    <X width={15} />
-                </div> */}
             </div>
         </div>
     );

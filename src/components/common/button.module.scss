@@ -1,11 +1,55 @@
-.container {
+.button {
 	width: 100%;
-	button {
-		border: 1px solid #e2e8f0;
-		border-radius: 8px;
-		padding: 0.8em 1.2em;
-		width: 100%;
-		background-color: var(--button-color, white);
-		color: var(--font-color, black);
+	border: 1px solid transparent;
+	border-radius: 999px;
+	padding: 0.95rem 1.35rem;
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	transition:
+		transform 0.2s ease,
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		box-shadow 0.2s ease,
+		color 0.2s ease;
+
+	&:hover:not(:disabled) {
+		transform: translateY(-1px);
+	}
+
+	&:active:not(:disabled) {
+		transform: translateY(0);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		color: var(--text-tertiary);
+		background: var(--surface-strong);
+		border-color: var(--surface-strong);
+		box-shadow: none;
+	}
+}
+
+.primary {
+	background: var(--button-color, var(--accent));
+	color: var(--font-color, #ffffff);
+	box-shadow: 0 14px 28px rgba(17, 24, 39, 0.16);
+}
+
+.secondary {
+	background: var(--button-color, rgba(255, 255, 255, 0.76));
+	color: var(--font-color, var(--text-primary));
+	border-color: var(--line);
+	backdrop-filter: blur(12px);
+}
+
+.ghost {
+	background: transparent;
+	color: var(--font-color, var(--text-secondary));
+	border-color: transparent;
+	box-shadow: none;
+
+	&:hover:not(:disabled) {
+		background: rgba(255, 255, 255, 0.55);
 	}
 }

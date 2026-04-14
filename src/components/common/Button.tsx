@@ -6,24 +6,31 @@ type ButtonProps = {
 	fontColor?: string;
 	onClick: () => void;
 	disabled?: boolean;
+	variant?: "primary" | "secondary" | "ghost";
 };
 
-function Button({ text, color, fontColor, onClick, disabled }: ButtonProps) {
+function Button({
+	text,
+	color,
+	fontColor,
+	onClick,
+	disabled,
+	variant = "secondary",
+}: ButtonProps) {
 	return (
-		<div className={styles.container}>
-			<button
-				disabled={disabled}
-				onClick={onClick}
-				style={
-					{
-						"--button-color": disabled ? "#EDF2F7" : color,
-						"--font-color": disabled ? "#A0AEC0" : fontColor,
-					} as React.CSSProperties
-				}
-			>
-				{text}
-			</button>
-		</div>
+		<button
+			disabled={disabled}
+			onClick={onClick}
+			className={`${styles.button} ${styles[variant]}`}
+			style={
+				{
+					"--button-color": color,
+					"--font-color": fontColor,
+				} as React.CSSProperties
+			}
+		>
+			{text}
+		</button>
 	);
 }
 

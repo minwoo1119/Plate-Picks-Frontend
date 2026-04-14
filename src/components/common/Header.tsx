@@ -2,13 +2,15 @@ import styles from "./header.module.scss";
 
 type HeaderProps = {
 	text: string;
+	eyebrow?: string;
 };
 
-function Header({ text }: HeaderProps) {
+function Header({ text, eyebrow = "Plate Picks" }: HeaderProps) {
 	return (
-		<div className={styles.container}>
-			<div>{text}</div>
-		</div>
+		<header className={styles.container}>
+			<div className={styles.eyebrow}>{eyebrow}</div>
+			<h1 className={styles.title}>{text}</h1>
+		</header>
 	);
 }
 

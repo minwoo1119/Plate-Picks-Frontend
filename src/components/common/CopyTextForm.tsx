@@ -18,7 +18,9 @@ function CopyTextForm({ text }: CopyTextFormProps) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.text}>{text}</div>
-			<Copy className={styles.copyIcon} onClick={handleCopy} />
+			<button className={styles.copyButton} onClick={handleCopy} type="button">
+				<Copy className={styles.copyIcon} />
+			</button>
 		</div>
 	);
 }

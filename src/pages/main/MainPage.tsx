@@ -1,7 +1,8 @@
 import Button from '../../components/common/Button';
-import { EggFried } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Input from '../../components/common/Input';
 import api from '../../api/api';
+import heroImage from '../../img/main_title.png';
 import styles from './mainpage.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -39,33 +40,57 @@ function MainPage() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.titleBox}>
-                <EggFried />
+            <div className={styles.heroContent}>
+                <div className={styles.titleBox}>
+                    <div className={styles.heroImageFrame}>
+                        <img
+                            src={heroImage}
+                            alt='Plate Picks'
+                            className={styles.heroImage}
+                        />
+                    </div>
+                    <div className={styles.subtitle}>
+                        모임 인원만 입력하면, 각자의 취향을 빠르게 모아서
+                        깔끔하게 메뉴를 정리합니다.
+                    </div>
+                </div>
 
-                <div className={styles.title}>Plate Picks</div>
-                <div className={styles.subtitle}>
-                    쉽고 간단하게 메뉴를 골라드릴게요 !
+                <div className={styles.descriptionList}>
+                    <div className={styles.descriptionItem}>
+                        방 생성, 취향 응답, 메뉴 추천까지 3단계로 빠르게
+                        진행됩니다.
+                    </div>
+                    <div className={styles.descriptionItem}>
+                        참가자들의 응답 상태를 실시간으로 확인하면서 바로
+                        다음 단계로 넘어갈 수 있습니다.
+                    </div>
                 </div>
             </div>
 
             <div className={styles.inputBox}>
+                <div className={styles.sectionTitle}>새 모임 시작</div>
                 <Input
                     label='참가자 수'
                     onChange={(e) => setNumOfPeople(e.target.valueAsNumber)}
-                    placeholder='인원 수를 입력하세요.'
+                    placeholder='예: 4'
+                    value={Number.isNaN(numOfPeople) ? '' : numOfPeople || ''}
                 />
                 <Button
                     text='모임 만들기'
-                    color='#5046E5'
+                    color='#2F6B3D'
                     onClick={handleMakeBtnClick}
                     fontColor='white'
+                    variant='primary'
                 />
-                <hr />
+                <div className={styles.divider}>or</div>
                 <Button
                     text='기존 모임 참여하기'
-                    color='white'
                     onClick={handleJoinBtnClick}
                 />
+                <div className={styles.helperRow}>
+                    <ArrowRight size={16} />
+                    링크 없이 코드만으로 바로 참여할 수 있습니다.
+                </div>
             </div>
         </div>
     );
