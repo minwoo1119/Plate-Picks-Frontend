@@ -22,6 +22,13 @@ export interface RoomInfo {
     all_completed: boolean;
 }
 
+type ParticipantEventPayload = {
+    participantId: string;
+    participantName: string;
+    participants: RoomUserInfo[];
+    type: 'participant-joined' | 'participant-completed';
+};
+
 function ProgressPage() {
     const location = useLocation();
     const roomId = location.state.roomId;
@@ -58,12 +65,14 @@ function ProgressPage() {
         );
 
         eventSource.onmessage = (event) => {
-            const data = JSON.parse(event.data);
+            const data: ParticipantEventPayload = JSON.parse(event.data);
             console.log('SSE 수신:', data);
 
-            if (data.type === 'participant-completed') {
-                getRoomParticipateInfo();
-                getRoomInfo();
+            if (
+                data.type === 'participant-joined' ||
+                data.type === 'participant-completed'
+            ) {
+                setUserList(data.participants);
             }
         };
 
@@ -75,7 +84,7 @@ function ProgressPage() {
         return () => {
             eventSource.close();
         };
-    }, []);
+    }, [roomId]);
 
     useEffect(() => {
         const completed = userList.filter((u) => u.completed).length;
@@ -84,7 +93,7 @@ function ProgressPage() {
         if (completed === total && total > 0) {
             navigate('/recommand', { state: { roomId } });
         }
-    }, [userList]);
+    }, [navigate, roomId, roomInfo?.total_participants, userList]);
 
     return (
         <div className={styles.container}>
