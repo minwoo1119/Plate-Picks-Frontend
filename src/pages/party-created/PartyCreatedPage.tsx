@@ -45,15 +45,17 @@ function PartyCreatedPage() {
                 </div>
             </div>
 
-            <Button
-                text='내 모임으로 계속하기'
-                onClick={() =>
-                    navigate('/join', { state: { roomId: inviteCode } })
-                }
-                color='#2F6B3D'
-                fontColor='white'
-                variant='primary'
-            />
+            <div className={styles.buttonArea}>
+                <Button
+                    text='내 모임으로 계속하기'
+                    onClick={() =>
+                        navigate('/join', { state: { roomId: inviteCode } })
+                    }
+                    color='#2F6B3D'
+                    fontColor='white'
+                    variant='primary'
+                />
+            </div>
         </div>
     );
 }
