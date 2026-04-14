@@ -54,7 +54,7 @@ function JoinPage() {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <Header text='모임 참여' eyebrow='Join a room' />
+                <Header text='모임 참여' />
                 <div className={styles.titleText}>함께 메뉴를 정해볼까요?</div>
                 <div className={styles.groupId}>
                     {roomId

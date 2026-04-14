@@ -21,7 +21,7 @@ function PartyCreatedPage() {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <Header text='모임이 생성되었습니다!' eyebrow='Room ready' />
+                <Header text='모임이 생성되었습니다!' />
                 <div className={styles.checkContainer}>
                     <Check className={styles.icon} />
                     <div className={styles.mainText}>

@@ -42,7 +42,7 @@ function RecommandPage() {
     return (
         <div className={styles.container}>
             <div className={styles.heroSection}>
-                <Header text='메뉴 추천' eyebrow='Recommendation' />
+                <Header text='메뉴 추천' />
                 <RemainPoint remainCnt={remainPoint} />
                 <div className={styles.textArea}>
                     <div className={styles.title}>추천 메뉴</div>

@@ -100,7 +100,7 @@ function SurveyPage() {
     return (
         <div className={styles.container}>
             <div className={styles.topArea}>
-                <Header text='음식 선호도' eyebrow='Preference survey' />
+                <Header text='음식 선호도' />
                 <div className={styles.content}>
                     <div className={styles.textArea}>
                         <div className={styles.titleText}>

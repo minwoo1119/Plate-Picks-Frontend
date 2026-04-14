@@ -89,7 +89,7 @@ function ProgressPage() {
     return (
         <div className={styles.container}>
             <div className={styles.heroPanel}>
-                <Header text='모임 진행 상황' eyebrow='Live room status' />
+                <Header text='모임 진행 상황' />
                 <div className={styles.statusBox}>
                     <Users className={styles.icon} />
                     <div className={styles.titleText}>응답 대기 중</div>
