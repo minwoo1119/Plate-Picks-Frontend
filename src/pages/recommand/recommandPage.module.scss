@@ -19,23 +19,6 @@
 	box-shadow: var(--shadow-lg);
 }
 
-.textArea {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.title {
-	font-size: clamp(1.5rem, 4vw, 2.15rem);
-	font-weight: 700;
-	letter-spacing: -0.05em;
-}
-
-.subTitle {
-	color: var(--text-secondary);
-	max-width: 34rem;
-}
-
 .recommendBox {
 	display: flex;
 	flex-direction: column;

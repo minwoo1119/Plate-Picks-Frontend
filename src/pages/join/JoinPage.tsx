@@ -54,17 +54,14 @@ function JoinPage() {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <Header text='모임 참여' />
-                <div className={styles.titleText}>함께 메뉴를 정해볼까요?</div>
+                <Header
+                    text='함께 메뉴를 정해볼까요?'
+                    description='이름을 입력한 뒤 추천 후보를 평가하면, 모든 참가자의 응답을 모아 최종 메뉴를 추천합니다.'
+                />
                 <div className={styles.groupId}>
                     {roomId
                         ? `모임 코드 : ${roomCode || '확인 중'}`
                         : `모임 코드 : ${inviteCode || '입력 필요'}`}
-                </div>
-                <div className={styles.description}>
-                    이름을 입력한 후 메뉴 선정을 위해 선호도를 입력해주세요.
-                    모든 참가자의 선호도를 바탕으로 최적의 메뉴를
-                    추천해드립니다.
                 </div>
                 {!roomId && (
                     <Input

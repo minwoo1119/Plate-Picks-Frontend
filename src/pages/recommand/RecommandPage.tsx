@@ -42,15 +42,11 @@ function RecommandPage() {
     return (
         <div className={styles.container}>
             <div className={styles.heroSection}>
-                <Header text='메뉴 추천' />
+                <Header
+                    text='지금 가장 균형 좋은 메뉴입니다.'
+                    description='참가자들의 응답을 바탕으로 모두가 수긍하기 쉬운 선택지를 골랐습니다.'
+                />
                 <RemainPoint remainCnt={remainPoint} />
-                <div className={styles.textArea}>
-                    <div className={styles.title}>추천 메뉴</div>
-                    <div className={styles.subTitle}>
-                        여러분의 의견을 바탕으로 가장 균형 잡힌 선택을
-                        골랐습니다.
-                    </div>
-                </div>
             </div>
             <div className={styles.recommendBox}>
                 <ResultFoodBox

@@ -68,14 +68,15 @@
 }
 
 .mainText {
-	font-size: clamp(1.6rem, 4vw, 2.3rem);
+	font-size: clamp(1.2rem, 3vw, 1.55rem);
 	font-weight: 700;
-	letter-spacing: -0.05em;
+	letter-spacing: -0.04em;
 }
 
 .subText {
 	font-size: 0.95rem;
 	color: var(--text-secondary);
+	line-height: 1.6;
 }
 
 @media (max-width: 720px) {

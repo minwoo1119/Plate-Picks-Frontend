@@ -21,14 +21,17 @@ function PartyCreatedPage() {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <Header text='모임이 생성되었습니다!' />
+                <Header
+                    align='center'
+                    text='모임 준비가 끝났습니다.'
+                    description='초대 코드를 공유하면 참가자들이 바로 입장해서 추천 후보 평가를 시작할 수 있습니다.'
+                />
                 <div className={styles.checkContainer}>
                     <Check className={styles.icon} />
-                    <div className={styles.mainText}>
-                        모임이 준비되었습니다.
-                    </div>
+                    <div className={styles.mainText}>초대 코드만 전달하면 됩니다.</div>
                     <div className={styles.subText}>
-                        이 코드를 모임 참가자들과 공유하세요.
+                        참가자는 코드 입력 후 바로 조건 기반 메뉴 평가를
+                        시작합니다.
                     </div>
                 </div>
                 <CopyTextForm text={inviteCode} />

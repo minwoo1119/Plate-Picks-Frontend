@@ -9,6 +9,7 @@ type FoodSelectionProps = {
     description: string;
     imgUrl: string;
     preference: Preference;
+    reason?: string;
     setPreference: (pref: Preference) => void;
 };
 
@@ -18,6 +19,7 @@ function FoodSelection({
     imgUrl,
     name,
     description,
+    reason,
 }: FoodSelectionProps) {
     return (
         <div className={styles.container}>
@@ -27,6 +29,7 @@ function FoodSelection({
             <div className={styles.textBox}>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.description}>{description}</div>
+                {reason && <div className={styles.reason}>{reason}</div>}
             </div>
             <div className={styles.preferenceBox}>
                 <div

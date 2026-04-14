@@ -98,12 +98,19 @@ function ProgressPage() {
     return (
         <div className={styles.container}>
             <div className={styles.heroPanel}>
-                <Header text='모임 진행 상황' />
+                <Header
+                    text='응답을 기다리는 중입니다.'
+                    description='참가자가 입장하거나 응답을 완료하면 목록이 바로 갱신됩니다.'
+                />
                 <div className={styles.statusBox}>
                     <Users className={styles.icon} />
-                    <div className={styles.titleText}>응답 대기 중</div>
+                    <div className={styles.titleText}>
+                        현재 {userList.filter((ele) => ele.completed).length}명
+                        이 응답을 마쳤어요
+                    </div>
                     <div className={styles.subText}>
-                        다른 참가자들이 설문을 완료할 때까지 기다려주세요.
+                        남은 참가자들이 추천 후보를 평가하면 자동으로 결과
+                        화면으로 이동합니다.
                     </div>
                 </div>
             </div>

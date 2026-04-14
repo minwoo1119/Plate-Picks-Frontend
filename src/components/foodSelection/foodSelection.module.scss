@@ -42,6 +42,12 @@
 		color: var(--text-secondary);
 	}
 
+	.reason {
+		font-size: 0.82rem;
+		color: var(--accent);
+		font-weight: 600;
+	}
+
 	.preferenceBox {
 		display: flex;
 		flex-direction: column;
