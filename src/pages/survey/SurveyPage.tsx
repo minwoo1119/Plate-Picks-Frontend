@@ -36,6 +36,11 @@ function SurveyPage() {
         try {
             const response = await api.get('/foods');
             setFoodList(response.data);
+            const initialPrefs: Record<string, Preference> = {};
+            response.data.forEach((food: Food) => {
+                initialPrefs[food.id] = 'Soso';
+            });
+            setPreferences(initialPrefs);
             console.log('fetched data : ', response.data);
         } catch (err) {
             console.error('요청 중 오류 발생', err);
@@ -44,12 +49,6 @@ function SurveyPage() {
 
     useEffect(() => {
         fetchFoodList();
-        setFoodList(foodList);
-        const initialPrefs: Record<string, Preference> = {};
-        foodList.forEach((food) => {
-            initialPrefs[food.id] = 'Soso';
-        });
-        setPreferences(initialPrefs);
     }, []);
 
     const handleSetPreference = (id: string, pref: Preference) => {
@@ -70,8 +69,8 @@ function SurveyPage() {
 
     const handleCompleted = async () => {
         try {
-            const response = await api.get(
-                `/participants/complete/${participantId}`,
+            const response = await api.patch(
+                `/participants/${participantId}/complete`,
             );
             console.log('응답:', response.data);
         } catch (err) {
