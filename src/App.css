@@ -4,6 +4,5 @@
 	place-items: center;
 	color: var(--text-secondary);
 	font-size: 0.95rem;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
+	letter-spacing: -0.02em;
 }

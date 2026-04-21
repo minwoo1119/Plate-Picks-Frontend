@@ -6,7 +6,7 @@ import {
 
 import { lazy } from "react";
 
-const MainPage = lazy(() => import("./pages/main/MainPage"));
+const MainPage = lazy(() => import("./pages/main/MainPage"));
 const PartyCreatedPage = lazy(
 	() => import("./pages/party-created/PartyCreatedPage"),
 );

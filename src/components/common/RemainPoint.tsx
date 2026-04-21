@@ -8,9 +8,8 @@ const RemainPoint = ({ remainCnt }: RemainPointProps) => {
 	const totalCnt = 2;
 	return (
 		<div className={styles.container}>
-			<div className={styles.label}>
-				무료 재시도 가능 {remainCnt}/{totalCnt}
-			</div>
+			<div className={styles.eyebrow}>Retry Credits</div>
+			<div className={styles.label}>무료 재시도 {remainCnt}/{totalCnt}</div>
 		</div>
 	);
 };

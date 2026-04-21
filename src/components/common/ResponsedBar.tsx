@@ -21,7 +21,9 @@ const ResponsedBar = ({ isChecked, name, status }: ResponsedBarProps) => {
 				</div>
 				<div className={styles.name}>{name}</div>
 			</div>
-			<div className={styles.status}>{status}</div>
+			<div className={`${styles.status} ${isChecked ? styles.completed : styles.pending}`}>
+				{status}
+			</div>
 		</div>
 	);
 };

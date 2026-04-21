@@ -8,9 +8,9 @@
 }
 
 .content {
-	width: min(100%, 640px);
-	padding: 1.4rem;
-	border-radius: var(--radius-xl);
+	width: min(100%, 680px);
+	padding: 1.5rem;
+	border-radius: var(--radius-2xl);
 	border: 1px solid var(--line);
 	background: var(--bg-elevated);
 	box-shadow: var(--shadow-lg);
@@ -19,10 +19,20 @@
 	gap: 1rem;
 }
 
-.groupId {
-	color: var(--text-secondary);
+.codeBanner {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	padding: 0.9rem 1rem;
+	border-radius: 20px;
+	background: var(--surface-muted);
 	font-size: 0.92rem;
-	padding: 0.15rem 0 0.35rem;
+	font-weight: 700;
+	color: var(--text-secondary);
+}
+
+.codeBanner svg {
+	color: var(--accent);
 }
 
 .inlineHint {
@@ -30,11 +40,15 @@
 	align-items: center;
 	gap: 0.45rem;
 	color: var(--text-secondary);
-	font-size: 0.88rem;
+	font-size: 0.9rem;
 }
 
 @media (max-width: 720px) {
 	.container {
 		padding: 1rem;
+	}
+
+	.content {
+		padding: 1.25rem;
 	}
 }

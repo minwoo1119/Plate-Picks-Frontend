@@ -1,10 +1,10 @@
 .container {
-	padding: 0.95rem 1.1rem;
-	border-radius: 18px;
+	padding: 1rem 1.1rem;
+	border-radius: 22px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background: rgba(255, 255, 255, 0.82);
+	background: #ffffff;
 	border: 1px solid var(--line);
 	box-shadow: var(--shadow-md);
 
@@ -39,7 +39,19 @@
 	}
 
 	.status {
-		font-size: 0.84rem;
-		color: var(--text-secondary);
+		font-size: 0.82rem;
+		font-weight: 700;
+		padding: 0.45rem 0.7rem;
+		border-radius: 999px;
 	}
+}
+
+.completed {
+	background: var(--success-soft);
+	color: var(--success);
+}
+
+.pending {
+	background: var(--surface-muted);
+	color: var(--text-secondary);
 }

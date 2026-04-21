@@ -1,10 +1,9 @@
 :root {
 	font-family:
-		"Space Grotesk", "Pretendard", "SUIT Variable", "Noto Sans KR",
-		sans-serif;
+		"Inter", "Pretendard", "SUIT Variable", "Noto Sans KR", sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-	color: #111827;
+	color: #191f28;
 	background: #ffffff;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -12,26 +11,30 @@
 	-moz-osx-font-smoothing: grayscale;
 
 	--bg: #ffffff;
-	--bg-elevated: rgba(255, 255, 255, 0.84);
+	--bg-subtle: linear-gradient(180deg, #f8fbff 0%, #ffffff 40%, #f5f8fc 100%);
+	--bg-elevated: rgba(255, 255, 255, 0.96);
 	--surface: #ffffff;
-	--surface-muted: #f7f7f4;
-	--surface-strong: #ecece7;
-	--line: rgba(17, 24, 39, 0.08);
-	--line-strong: rgba(17, 24, 39, 0.16);
-	--text-primary: #111827;
-	--text-secondary: #4b5563;
-	--text-tertiary: rgba(75, 85, 99, 0.58);
-	--accent: #2f6b3d;
-	--accent-strong: #255730;
-	--accent-soft: rgba(47, 107, 61, 0.08);
-	--success: #2f6b3d;
-	--success-soft: rgba(47, 107, 61, 0.12);
-	--warning: #8b5e34;
-	--warning-soft: rgba(236, 236, 231, 0.95);
-	--shadow-lg: 0 24px 70px rgba(17, 24, 39, 0.08);
-	--shadow-md: 0 14px 30px rgba(17, 24, 39, 0.06);
-	--radius-xl: 32px;
-	--radius-lg: 24px;
+	--surface-muted: #f2f4f6;
+	--surface-strong: #e5e8eb;
+	--line: rgba(25, 31, 40, 0.08);
+	--line-strong: rgba(25, 31, 40, 0.16);
+	--text-primary: #191f28;
+	--text-secondary: #4e5968;
+	--text-tertiary: #8b95a1;
+	--accent: #0064ff;
+	--accent-strong: #0048cc;
+	--accent-soft: rgba(0, 100, 255, 0.1);
+	--success: #0f9f6e;
+	--success-soft: rgba(15, 159, 110, 0.12);
+	--warning: #b26a00;
+	--warning-soft: rgba(255, 243, 224, 0.95);
+	--danger: #f04452;
+	--danger-soft: rgba(240, 68, 82, 0.12);
+	--shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.08);
+	--shadow-md: 0 14px 30px rgba(15, 23, 42, 0.06);
+	--radius-2xl: 36px;
+	--radius-xl: 28px;
+	--radius-lg: 22px;
 	--radius-md: 18px;
 	--radius-sm: 14px;
 }
@@ -49,7 +52,7 @@ body {
 	min-width: 320px;
 	min-height: 100vh;
 	color: var(--text-primary);
-	background: var(--bg);
+	background: var(--bg-subtle);
 }
 
 a {
@@ -66,6 +69,7 @@ select {
 
 button {
 	cursor: pointer;
+	border: 0;
 }
 
 #root {

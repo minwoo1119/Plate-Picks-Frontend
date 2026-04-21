@@ -6,7 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 1.2rem;
+	gap: 1rem;
 }
 
 .topArea {
@@ -14,7 +14,7 @@
 	flex-direction: column;
 	gap: 1rem;
 	padding: 1.4rem;
-	border-radius: var(--radius-xl);
+	border-radius: var(--radius-2xl);
 	border: 1px solid var(--line);
 	background: var(--bg-elevated);
 	box-shadow: var(--shadow-lg);
@@ -27,10 +27,205 @@
 	gap: 1rem;
 }
 
+.formSection,
 .foodList {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+}
+
+.block {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+	padding: 1.1rem;
+	border-radius: 24px;
+	background: #ffffff;
+	border: 1px solid var(--line);
+}
+
+.blockHeader {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.7rem;
+}
+
+.blockHeader svg {
+	color: var(--accent);
+	flex-shrink: 0;
+	margin-top: 0.15rem;
+}
+
+.blockTitle {
+	font-size: 1rem;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+}
+
+.blockDescription {
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+	line-height: 1.55;
+}
+
+.segmentedRow {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.65rem;
+}
+
+.segmentedButton,
+.modeCard,
+.chip,
+.categoryChip {
+	border: 1px solid var(--line);
+	background: var(--surface-muted);
+	transition:
+		transform 0.2s ease,
+		border-color 0.2s ease,
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.segmentedButton {
+	padding: 0.95rem 1rem;
+	border-radius: 18px;
+	font-weight: 700;
+	color: var(--text-secondary);
+}
+
+.segmentedActive,
+.chipActive {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: #ffffff;
+}
+
+.modeGrid,
+.formGrid,
+.categoryColumns {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.modeCard {
+	text-align: left;
+	padding: 1rem;
+	border-radius: 22px;
+}
+
+.modeActive {
+	background: rgba(0, 100, 255, 0.08);
+	border-color: rgba(0, 100, 255, 0.22);
+}
+
+.modeTitle {
+	font-size: 1rem;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	margin-bottom: 0.25rem;
+}
+
+.modeDescription {
+	font-size: 0.88rem;
+	color: var(--text-secondary);
+}
+
+.range {
+	width: 100%;
+	accent-color: var(--accent);
+}
+
+.priceValue {
+	font-size: 1.3rem;
+	font-weight: 800;
+	letter-spacing: -0.04em;
+}
+
+.chipRow,
+.categoryList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+}
+
+.chip {
+	padding: 0.7rem 0.9rem;
+	border-radius: 999px;
+	font-size: 0.88rem;
+	font-weight: 700;
+	color: var(--text-secondary);
+}
+
+.toggleStack {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.checkboxRow {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.checkboxRow input {
+	accent-color: var(--accent);
+}
+
+.categorySection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+}
+
+.categoryLabel {
+	font-size: 0.84rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-tertiary);
+}
+
+.categoryChip {
+	padding: 0.8rem 1rem;
+	border-radius: 999px;
+	font-size: 0.88rem;
+	font-weight: 700;
+	color: var(--text-secondary);
+}
+
+.selected {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: #ffffff;
+}
+
+.excluded {
+	background: var(--danger-soft);
+	border-color: rgba(240, 68, 82, 0.2);
+	color: var(--danger);
+}
+
+.voteHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.voteBadge {
+	padding: 0.55rem 0.8rem;
+	border-radius: 999px;
+	background: var(--accent-soft);
+	color: var(--accent);
+	font-size: 0.84rem;
+	font-weight: 800;
 }
 
 .emptyState {
@@ -42,124 +237,21 @@
 	text-align: center;
 }
 
-.formSection {
-	display: flex;
-	flex-direction: column;
-	gap: 1.1rem;
-}
-
-.formGrid {
+.buttonArea {
+	border-top: 1px solid var(--line);
+	padding-top: 1rem;
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1rem;
 }
 
-.field {
-	display: flex;
-	flex-direction: column;
-	gap: 0.55rem;
-	font-size: 0.92rem;
-	font-weight: 600;
-
-	span {
-		color: var(--text-primary);
-	}
-
-	select,
-	input {
-		width: 100%;
-		border: 1px solid var(--line);
-		border-radius: 16px;
-		padding: 0.9rem 1rem;
-		background: rgba(255, 255, 255, 0.86);
-		color: var(--text-primary);
-		font-size: 0.95rem;
-	}
-
-	input[type='range'] {
-		padding: 0;
-	}
-}
-
-.rangeValue {
-	color: var(--accent);
-	font-size: 0.92rem;
-}
-
-.toggleSection {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-	padding: 1rem 1.1rem;
-	border: 1px solid var(--line);
-	border-radius: var(--radius-lg);
-	background: rgba(255, 255, 255, 0.72);
-}
-
-.checkboxRow {
-	display: flex;
-	align-items: center;
-	gap: 0.65rem;
-	font-size: 0.94rem;
-	color: var(--text-primary);
-}
-
-.categorySection {
-	display: flex;
-	flex-direction: column;
-	gap: 0.7rem;
-}
-
-.categoryLabel {
-	font-size: 0.92rem;
-	font-weight: 700;
-}
-
-.categoryList {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.65rem;
-}
-
-.categoryChip {
-	border: 1px solid var(--line);
-	border-radius: 999px;
-	padding: 0.7rem 1rem;
-	background: rgba(255, 255, 255, 0.82);
-	font-size: 0.9rem;
-	font-weight: 600;
-	color: var(--text-secondary);
-	transition:
-		background-color 0.2s ease,
-		color 0.2s ease,
-		border-color 0.2s ease,
-		transform 0.2s ease;
-
-	&:hover {
+@media (hover: hover) {
+	.segmentedButton:hover,
+	.modeCard:hover,
+	.chip:hover,
+	.categoryChip:hover {
 		transform: translateY(-1px);
 	}
-}
-
-.selected {
-	background: var(--accent);
-	border-color: var(--accent);
-	color: #fff;
-}
-
-.excluded {
-	background: rgba(176, 36, 36, 0.12);
-	border-color: rgba(176, 36, 36, 0.24);
-	color: #8b1e1e;
-}
-
-.buttonArea {
-	border-top: 1px solid var(--line);
-	padding-top: 1rem;
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
-	align-items: center;
-	gap: 1rem;
 }
 
 @media (max-width: 720px) {
@@ -167,7 +259,15 @@
 		padding: 1rem;
 	}
 
-	.formGrid {
+	.topArea {
+		padding: 1.2rem;
+	}
+
+	.segmentedRow,
+	.modeGrid,
+	.formGrid,
+	.categoryColumns,
+	.buttonArea {
 		grid-template-columns: 1fr;
 	}
 }

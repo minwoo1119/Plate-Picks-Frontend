@@ -1,4 +1,4 @@
-import { ThumbsDown, ThumbsUp } from 'lucide-react';
+import { Heart, Tag, ThumbsDown } from 'lucide-react';
 
 import { Preference } from '../../pages/survey/SurveyPage';
 import styles from './foodSelection.module.scss';
@@ -27,29 +27,37 @@ function FoodSelection({
                 <img src={imgUrl} alt='음식 이미지' />
             </div>
             <div className={styles.textBox}>
+                <div className={styles.metaRow}>
+                    <span className={styles.tag}>
+                        <Tag size={14} />
+                        추천 후보
+                    </span>
+                    {reason && <span className={styles.reason}>{reason}</span>}
+                </div>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.description}>{description}</div>
-                {reason && <div className={styles.reason}>{reason}</div>}
             </div>
             <div className={styles.preferenceBox}>
-                <div
+                <button
                     className={`${styles.preferenceBtn} ${
                         preference === 'Good' ? styles.selected : ''
                     }`}
                     onClick={() => setPreference('Good')}
+                    type='button'
                 >
-                    <ThumbsUp width={15} />
-                    <span>좋아요</span>
-                </div>
-                <div
+                    <Heart width={15} />
+                    <span>Looks good</span>
+                </button>
+                <button
                     className={`${styles.preferenceBtn} ${
                         preference === 'Bad' ? styles.selected : ''
                     }`}
                     onClick={() => setPreference('Bad')}
+                    type='button'
                 >
                     <ThumbsDown width={15} />
-                    <span>별로예요</span>
-                </div>
+                    <span>No thanks</span>
+                </button>
             </div>
         </div>
     );

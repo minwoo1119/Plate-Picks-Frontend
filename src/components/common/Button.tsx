@@ -7,6 +7,7 @@ type ButtonProps = {
 	onClick: () => void;
 	disabled?: boolean;
 	variant?: "primary" | "secondary" | "ghost";
+	size?: "md" | "lg";
 };
 
 function Button({
@@ -16,12 +17,13 @@ function Button({
 	onClick,
 	disabled,
 	variant = "secondary",
+	size = "lg",
 }: ButtonProps) {
 	return (
 		<button
 			disabled={disabled}
 			onClick={onClick}
-			className={`${styles.button} ${styles[variant]}`}
+			className={`${styles.button} ${styles[variant]} ${styles[size]}`}
 			style={
 				{
 					"--button-color": color,

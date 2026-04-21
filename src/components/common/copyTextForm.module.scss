@@ -1,35 +1,62 @@
 .container {
 	width: 100%;
-	padding: 0.85rem 0.95rem;
+	padding: 1rem 1rem 1rem 1.15rem;
 	border: 1px solid var(--line);
-	border-radius: 18px;
+	border-radius: 24px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
-	background: rgba(255, 255, 255, 0.82);
+	background: #ffffff;
+	box-shadow: var(--shadow-md);
+}
 
-	.text {
-		font-size: 0.95rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	min-width: 0;
+}
+
+.label {
+	font-size: 0.76rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-tertiary);
+}
+
+.text {
+	font-size: clamp(1.3rem, 5vw, 2rem);
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .copyButton {
-	border: 0;
-	background: var(--accent);
-	color: white;
-	width: 2.4rem;
-	height: 2.4rem;
+	background: var(--accent-soft);
+	color: var(--accent);
+	border: 1px solid rgba(0, 100, 255, 0.12);
+	width: 3rem;
+	height: 3rem;
 	border-radius: 999px;
 	display: grid;
 	place-items: center;
 	flex-shrink: 0;
+	transition:
+		transform 0.2s ease,
+		background-color 0.2s ease;
+}
+
+.copyButton:hover {
+	transform: translateY(-1px);
+	background: rgba(0, 100, 255, 0.16);
 }
 
 .copyIcon {
-	width: 0.95rem;
-	height: 0.95rem;
+	width: 1rem;
+	height: 1rem;
 }
